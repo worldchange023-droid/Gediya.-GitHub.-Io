@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; margin:0; padding:0; }
+header { background:#007BFF; color:#fff; padding:15px; text-align:center; }
+header nav a { color:#fff; margin:0 10px; text-decoration:none; }
+.container { width:90%; margin:auto; padding:20px; }
+.banner img { width:100%; height:auto; }
+.course, .video { border:1px solid #ccc; padding:10px; margin-bottom:10px; }
+input, textarea, button { width:100%; padding:8px; margin:5px 0; }
+button { background:#007BFF; color:#fff; border:none; cursor:pointer; }
+button:hover { background:#0056b3; }
+@media (max-width:600px){ header, .container { padding:10px; } }

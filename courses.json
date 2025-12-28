@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "exam": "SSC GD",
+    "description": "SSC GD Exam preparation videos and details.",
+    "videos": [
+      {"id": 1, "title": "English Video", "url": "https://www.youtube.com/embed/example1"},
+      {"id": 2, "title": "GK Video", "url": "https://www.youtube.com/embed/example2"}
+    ]
+  },
+  {
+    "id": 2,
+    "exam": "Railway Group D",
+    "description": "Railway Group D Exam preparation.",
+    "videos": []
+  }
+]

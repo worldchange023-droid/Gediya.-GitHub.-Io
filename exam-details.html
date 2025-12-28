@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Details</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<h1>Exam Details</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="contact.html">Contact</a>
+<a href="admin/login.php">Admin</a>
+</nav>
+</header>
+
+<section class="container" id="videos"></section>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const courseId = urlParams.get('id');
+
+fetch('data/courses.json')
+.then(res => res.json())
+.then(courses => {
+    const course = courses.find(c => c.id == courseId);
+    const videosSection = document.getElementById('videos');
+
+    if(course){
+        videosSection.innerHTML = `<h2>${course.exam}</h2><p>${course.description}</p>`;
+        if(course.videos.length > 0){
+            course.videos.forEach(v => {
+                videosSection.innerHTML += `
+                <div class="video">
+                    <h4>${v.title}</h4>
+                    <iframe width="560" height="315" src="${v.url}" frameborder="0" allowfullscreen></iframe>
+                </div>`;
+            });
+        } else {
+            videosSection.innerHTML += "<p>No videos added yet.</p>";
+        }
+    } else {
+        videosSection.innerHTML = "<p>Course not found.</p>";
+    }
+});
+</script>
+
+<footer>
+<p>&copy; 2025 Government Exam Prep</p>
+</footer>
+</body>
+</html>

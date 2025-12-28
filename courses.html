@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<h1>Courses</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="contact.html">Contact</a>
+<a href="admin/login.php">Admin</a>
+</nav>
+</header>
+
+<section class="container">
+<div id="courses-list"></div>
+</section>
+
+<script>
+fetch('data/courses.json')
+.then(res => res.json())
+.then(courses => {
+    const container = document.getElementById('courses-list');
+    if(courses.length === 0) container.innerHTML = "<p>No courses available</p>";
+    courses.forEach(c => {
+        container.innerHTML += `
+        <div class="course">
+            <h3>${c.exam}</h3>
+            <p>${c.description}</p>
+            <a href="exam-details.html?id=${c.id}">View Videos</a>
+        </div>`;
+    });
+});
+</script>
+
+<footer>
+<p>&copy; 2025 Government Exam Prep</p>
+</footer>
+</body>
+</html>
